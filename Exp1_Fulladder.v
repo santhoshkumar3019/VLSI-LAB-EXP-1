@@ -1,7 +1,11 @@
-module half_adder(a,b,sum,carry);
-input a,b;
+module fulladder(a,b,c,sum,carry);
+input a,b,c;
 output sum,carry;
-xor g1(sum,a,b);
-and g2(carry,a,b);
-endmodule 
+wire w1,w2,w3;
+xor(w1,a,b);
+xor(sum,w1,c);
+and(w2,w1,c);
+and(w3,a,b);
+or(carry,w2,w3);
+endmodule
 
